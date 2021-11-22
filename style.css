@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.options-cont {
+    height: 3.8rem;
+    width: 3.5rem;
+    background-color: #f1f2f6;
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: rgba(66, 47, 47, 0.3) 0px 5px 15px;
+    cursor: pointer;
+}
+
+@keyframes scale-tools{
+    0%{
+        transform: scale(0.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.scale-tools{
+    animation-name: scale-tools;
+    animation-duration: 1s;
+}
+.tools-cont {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10rem;
+    left: 2.1rem;
+    height: 30rem;
+    width: 4.2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    background-color: #f1f2f6;
+}
+.tools-cont > *{
+    display: block;
+    margin: 8px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.pencil-tool-cont{
+    height: 7rem;
+    width: 8rem;
+    background-color: #f1f2f6;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 10.2rem;
+    left: 7.2rem;
+    border-radius: 3px;
+    display: none;
+}
+.pencil-width{
+    width: 80%;
+    margin: 0.8rem 1rem;
+}
+.pencil-color-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pencil-color{
+    margin: 4px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.eraser-tool-cont{
+    height: 2.8rem;
+    width: 8rem;
+    background-color: #f1f2f6;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 15rem;
+    left: 7.2rem;
+    border-radius: 3px;
+    text-align: center;
+    display: none;
+}
+.eraser-tool-cont input{
+    margin-top: 0.8rem;
+    width: 80%;
+}
+
+.sticky-cont{
+    height: 15rem;
+    width: 15rem;
+    position: absolute;
+    top: 8rem;
+    left: 30rem;
+
+}
+.header-cont{
+    height: 2rem;
+    background-color: #f1f2f6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor:grab;
+}
+.header-cont > * {
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.note-cont{
+    height: calc(100% - 2rem);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+textarea{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+}
+.note-cont img{
+    height: 100%;
+    width: 100%;
+}

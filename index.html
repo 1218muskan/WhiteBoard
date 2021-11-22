@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteBoard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="options-cont">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="tools-cont scale-tools">
+        <img id="pencil" src="Icons/pencil-tool.png">
+        <img id="eraser" src="Icons/Eraser.svg">
+        <img src="Icons/Undo.svg">
+        <img src="Icons/Redo.svg">
+        <img id="sticky" src="Icons/StickyNote.svg">
+        <img src="Icons/Download.svg">
+        <img id="upload" src="Icons/Upload.svg">
+    </div>
+
+    <div class="pencil-tool-cont">
+        <input class="pencil-width" type="range" min="2" max="10" value="4">
+        <div class="pencil-color-cont">
+            <div class="pencil-color" style="background-color: black;"></div>
+            <div class="pencil-color" style="background-color: red;"></div>
+            <div class="pencil-color" style="background-color: blue;"></div>
+        </div>
+        <div class="pencil-color-cont">
+            <div class="pencil-color" style="background-color: green;"></div>
+            <div class="pencil-color" style="background-color: orange;"></div>
+        </div>
+    </div>
+    <div class="eraser-tool-cont">
+        <input class="" type="range" min="2" max="10" value="4">
+    </div>
+
+    <!-- <div class="sticky-cont">
+        <div class="header-cont">
+            <div class="minimize" style="background-color: #2ed573;"></div>
+            <div class="remove" style="background-color: #ff4757;"></div>
+        </div>
+        <div class="note-cont">
+            <textarea></textarea>
+        </div>
+    </div> -->
+
+
+    <script src="tool.js"></script>
+</body>
+</html>
