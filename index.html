@@ -13,17 +13,18 @@
         <i class="fas fa-bars"></i>
     </div>
     <div class="tools-cont scale-tools">
-        <img id="pencil" src="Icons/pencil-tool.png">
-        <img id="eraser" src="Icons/Eraser.svg">
-        <img src="Icons/Undo.svg">
-        <img src="Icons/Redo.svg">
-        <img id="sticky" src="Icons/StickyNote.svg">
-        <img src="Icons/Download.svg">
-        <img id="upload" src="Icons/Upload.svg">
+        <img id="pencil" src="Icons/pencil.png" title="pencil">
+        <img id="eraser" src="Icons/eraser.png" title="eraser">
+        <img id="sticky" src="Icons/sticky-notes.png" title="sticky notes">
+        <img id="undo" src="Icons/undo.png" title="undo">
+        <img id="redo" src="Icons/redo.png" title="redo">
+        <img id="download" src="Icons/download.png" title="download notes">
+        <img id="upload" src="Icons/upload.png" title="upload image">
+        <img id="clear-all" src="Icons/dustbin.png" title="clear all">
     </div>
 
     <div class="pencil-tool-cont">
-        <input class="pencil-width" type="range" min="2" max="10" value="4">
+        <input class="pencil-width" type="range" min="2" max="10" value="3">
         <div class="pencil-color-cont">
             <div class="pencil-color" style="background-color: black;"></div>
             <div class="pencil-color" style="background-color: red;"></div>
@@ -35,7 +36,7 @@
         </div>
     </div>
     <div class="eraser-tool-cont">
-        <input class="" type="range" min="2" max="10" value="4">
+        <input class="eraser-width" type="range" min="2" max="10" value="3">
     </div>
 
     <!-- <div class="sticky-cont">
@@ -49,6 +50,9 @@
     </div> -->
 
 
+    <canvas></canvas>
+
     <script src="tool.js"></script>
+    <script src="canvas.js"></script>
 </body>
 </html>

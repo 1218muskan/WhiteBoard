@@ -7,7 +7,7 @@ body {
 }
 
 .options-cont {
-    height: 3.8rem;
+    height: 3.7rem;
     width: 3.5rem;
     background-color: #f1f2f6;
     position: absolute;
@@ -32,27 +32,33 @@ body {
 }
 .scale-tools{
     animation-name: scale-tools;
-    animation-duration: 1s;
+    animation-duration: 0.9s;
 }
 .tools-cont {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 10rem;
-    left: 2.1rem;
-    height: 30rem;
-    width: 4.2rem;
+    top: 10.5rem;
+    left: 2.4rem;
+    /* height: 31.3rem;
+    width: 3.8rem; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 12px;
     background-color: #f1f2f6;
 }
 .tools-cont > *{
     display: block;
-    margin: 8px;
-    padding: 2px;
+    height: 3.3rem;
+    width: 3.3rem;
+    margin: 4px;
+    padding: 6px;
     cursor: pointer;
+    border-radius: 30%;
 }
 
+#pencil{
+    background-color:#d7e0ee;
+}
 .pencil-tool-cont{
     height: 7rem;
     width: 8rem;
@@ -136,3 +142,4 @@ textarea{
     height: 100%;
     width: 100%;
 }
+

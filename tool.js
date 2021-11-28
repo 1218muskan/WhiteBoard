@@ -12,30 +12,47 @@ let optionsFlag = true;
 
 // by default pencil and eraser containers are not visible
 let pencilFlag = false;  
-let  eraserFlag = false;  
+let eraserFlag = false;  
 
 
+optionsContainer.addEventListener("mouseover", function(){
+    let iconElem = optionsContainer.children[0];
+    if(optionsFlag){
+        iconElem.classList.remove("fa-bars");
+        iconElem.classList.add("fa-times"); 
+    }
+});
+optionsContainer.addEventListener("mouseout", function(){
+    let iconElem = optionsContainer.children[0];
+    iconElem.classList.remove("fa-times");
+    iconElem.classList.add("fa-bars"); 
+});
 optionsContainer.addEventListener("click", function(){
     optionsFlag = !optionsFlag;
-
-    let iconElem = optionsContainer.children[0];
     if(optionsFlag){   //open toolbar
-        iconElem.classList.remove("fa-times");
-        iconElem.classList.add("fa-bars");
         toolsContainer.style.display = "flex";
-
     }
     else{    //close toolbar
-        iconElem.classList.remove("fa-bars");
-        iconElem.classList.add("fa-times");
         toolsContainer.style.display = "none";
-    }
-    
-})
+
+        pencilFlag = false;
+        eraserFlag = false;
+        pencilToolCont.style.display = "none";
+        eraserToolCont.style.display = "none";
+    }  
+});
+
 
 pencil.addEventListener("click", function(){
-    pencilFlag = !pencilFlag;
+    pencil.style.backgroundColor = "#d7e0ee";
+    eraser.style.backgroundColor = "transparent";
+    if(eraserFlag){
+        eraserToolCont.style.display = "none";
+        eraserFlag = false;
+    }
 
+    pencilFlag = !pencilFlag;
+    
     if(pencilFlag){   //show pencil tool 
         pencilToolCont.style.display = "block";
     }
@@ -43,18 +60,25 @@ pencil.addEventListener("click", function(){
         pencilToolCont.style.display = "none";
     }
     
-})
+});
 eraser.addEventListener("click", function(){
+    eraser.style.backgroundColor = "#d7e0ee";
+    pencil.style.backgroundColor = "transparent";
+    if(pencilFlag){
+        pencilToolCont.style.display = "none";
+        pencilFlag = false;
+    }
+
     eraserFlag = !eraserFlag;
 
-    if(eraserFlag){   //show pencil tool 
+    if(eraserFlag){   //show eraser tool 
         eraserToolCont.style.display = "block";
     }
-    else{    //hide pencil tool
+    else{    //hide eraser tool
         eraserToolCont.style.display = "none";
     }
     
-})
+});
 
 upload.addEventListener("click", function(){
     // open file eplorer
@@ -66,7 +90,7 @@ upload.addEventListener("click", function(){
     input.addEventListener("change", function(){
         let file = input.files[0];
         let url = URL.createObjectURL(file);
-        console.log(url);
+        // console.log(url);
 
         let stickyTemplateHTML = `
         <div class="header-cont">
@@ -79,7 +103,7 @@ upload.addEventListener("click", function(){
         `;
 
         createSticky(stickyTemplateHTML);
-
+        
     })
 
 });
