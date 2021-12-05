@@ -3,9 +3,11 @@ let toolsContainer = document.querySelector(".tools-cont");
 let pencil = document.getElementById("pencil");
 let eraser = document.getElementById("eraser");
 let sticky = document.getElementById("sticky");
+let shape = document.getElementById("shapes");
 let upload = document.getElementById("upload");
 let pencilToolCont = document.querySelector(".pencil-tool-cont");
 let eraserToolCont = document.querySelector(".eraser-tool-cont");
+let shapeToolCont = document.querySelector(".shape-tool-cont");
 
 // by default toolbar is visible
 let optionsFlag = true;  
@@ -13,6 +15,10 @@ let optionsFlag = true;
 // by default pencil and eraser containers are not visible
 let pencilFlag = false;  
 let eraserFlag = false;  
+let shapeFlag = false;
+
+// by default pencil is selected
+let isShape = false;   
 
 
 optionsContainer.addEventListener("mouseover", function(){
@@ -37,8 +43,10 @@ optionsContainer.addEventListener("click", function(){
 
         pencilFlag = false;
         eraserFlag = false;
+        shapeFlag = false;
         pencilToolCont.style.display = "none";
         eraserToolCont.style.display = "none";
+        shapeToolCont.style.display = "none";
     }  
 });
 
@@ -46,9 +54,14 @@ optionsContainer.addEventListener("click", function(){
 pencil.addEventListener("click", function(){
     pencil.style.backgroundColor = "#d7e0ee";
     eraser.style.backgroundColor = "transparent";
+    shape.style.backgroundColor = "transparent";
     if(eraserFlag){
         eraserToolCont.style.display = "none";
         eraserFlag = false;
+    }
+    if(shapeFlag){
+        shapeToolCont.style.display = "none";
+        shapeFlag = false;
     }
 
     pencilFlag = !pencilFlag;
@@ -64,9 +77,14 @@ pencil.addEventListener("click", function(){
 eraser.addEventListener("click", function(){
     eraser.style.backgroundColor = "#d7e0ee";
     pencil.style.backgroundColor = "transparent";
+    shape.style.backgroundColor = "transparent";
     if(pencilFlag){
         pencilToolCont.style.display = "none";
         pencilFlag = false;
+    }
+    if(shapeFlag){
+        shapeToolCont.style.display = "none";
+        shapeFlag = false;
     }
 
     eraserFlag = !eraserFlag;
@@ -78,6 +96,30 @@ eraser.addEventListener("click", function(){
         eraserToolCont.style.display = "none";
     }
     
+});
+shape.addEventListener("click", function(){
+    isShape = true;  // when shape is selected
+    shape.style.backgroundColor = "#d7e0ee";
+    pencil.style.backgroundColor = "transparent";
+    eraser.style.backgroundColor = "transparent";
+    if(eraserFlag){
+        eraserToolCont.style.display = "none";
+        eraserFlag = false;
+    }
+    if(pencilFlag){
+        pencilToolCont.style.display = "none";
+        pencilFlag = false;
+    }
+
+
+    shapeFlag = !shapeFlag;
+
+    if(shapeFlag){   //show shape tool 
+        shapeToolCont.style.display = "flex";
+    }
+    else{    //hide eraser tool
+        shapeToolCont.style.display = "none";
+    }
 });
 
 upload.addEventListener("click", function(){

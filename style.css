@@ -11,7 +11,7 @@ body {
     width: 3.5rem;
     background-color: #f1f2f6;
     position: absolute;
-    top: 2rem;
+    top: 1.8rem;
     left: 2.5rem;
     display: flex;
     justify-content: center;
@@ -38,7 +38,7 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 10.5rem;
+    top: 8.7rem;
     left: 2.4rem;
     /* height: 31.3rem;
     width: 3.8rem; */
@@ -65,7 +65,7 @@ body {
     background-color: #f1f2f6;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: absolute;
-    top: 10.2rem;
+    top: 9.3rem;
     left: 7.2rem;
     border-radius: 3px;
     display: none;
@@ -93,7 +93,7 @@ body {
     background-color: #f1f2f6;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: absolute;
-    top: 15rem;
+    top: 13.35rem;
     left: 7.2rem;
     border-radius: 3px;
     text-align: center;
@@ -141,5 +141,40 @@ textarea{
 .note-cont img{
     height: 100%;
     width: 100%;
+}
+
+.shape-tool-cont{
+    /* height: 7rem; */
+    height: 3.5rem;
+    width: 8rem;
+    background-color: #f1f2f6;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 20.6rem;
+    left: 7.2rem;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    display: none;
+}
+.geometric-shape{
+    height: 1.5rem;
+    cursor: pointer;
+}
+#straight-line > img {
+    height: 26px;
+    width: 26px;
+}
+#rectangle {
+    height: 25px;
+    width: 25px;
+    border: 2px solid black;
+}
+#circle {
+    height: 27px;
+    width: 27px;
+    border: 2px solid black;
+    border-radius: 50%;
 }
 

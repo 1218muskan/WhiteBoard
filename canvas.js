@@ -10,14 +10,26 @@ let undo  = document.getElementById("undo");
 let redo  = document.getElementById("redo");
 let clearAll  = document.getElementById("clear-all");
 
+let straightLine = document.getElementById("straight-line");
+let rectangle = document.getElementById("rectangle");
+let circle = document.getElementById("circle");
+
+
 let penColor = "black";     // by default color of pencil
 let eraserColor = "white";
+let shapeColor = "black";
+let shapeType = "line";    // by default shape is straight line
 let penWidth = pencilWidthElem.value;
 let eraserWidth = eraserWidthElem.value;
+let shapeWidth = "3";
 let mousedown = false;
 
 let undoRedoTracker = [];  // to store our actions
 let track = -1;  // to keep track of our cureent action
+
+// For keeping track of beginning points to draw shape
+let beginX , beginY ; 
+
 
 // API
 let ctx = canvas.getContext('2d');
@@ -28,17 +40,33 @@ ctx.lineWidth = penWidth;
 canvas.addEventListener("mousedown", function(event){
     mousedown = true;
 
+    if(isShape){
+        beginX = event.clientX;
+        beginY = event.clientY;
+    }
+
     ctx.beginPath();
-    ctx.moveTo(event.clientX , event.clientY);  
+    if((isShape && shapeType!="circle") || (!isShape)){
+        ctx.moveTo(event.clientX , event.clientY);  
+    }
+    
 });
 canvas.addEventListener("mousemove", function(event){
     if(mousedown){
-        ctx.lineTo(event.clientX , event.clientY);
-        ctx.stroke();
+
+        if(!isShape){
+            ctx.lineTo(event.clientX , event.clientY);
+            ctx.stroke();
+        }
+        
     }
 });
 canvas.addEventListener("mouseup", function(event){
     mousedown = false;
+
+    if(isShape){
+        drawShape(event.clientX , event.clientY);
+    }
 
     let url = canvas.toDataURL();
     track++;
@@ -86,8 +114,49 @@ function undoRedoCanvas(){
 
 }
 
+function drawShape(endX , endY){
+
+    ctx.lineWidth = shapeWidth;
+    ctx.strokeStyle = shapeColor;
+
+    if(shapeType === "line"){
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+    }
+    else if(shapeType=== "rect"){
+        var breadth = endY - beginY;
+        var length = endX - beginX ;
+
+        // ctx.lineTo(beginX, beginY+breadth);
+        // ctx.lineTo(endX , endY);
+        // ctx.lineTo(endX , endY - breadth);
+        // ctx.lineTo(beginX , beginY);
+        ctx.strokeRect(beginX , beginY , length , breadth);
+        ctx.stroke();
+    }
+
+    else{   // circle is left only
+
+        // if(length===0) var angle = Math.PI/2;
+        // else var angle = Math.atan(breadth/length);
+
+        // distance formula
+        var diameter = Math.hypot(endY - beginY , endX - beginX);
+        var radius = diameter/2;
+
+        // mid-point formula
+        var centerX = (beginX + endX)/2;
+        var centerY = (beginY + endY)/2;
+
+        ctx.arc(centerX , centerY , radius , 0 ,Math.PI*2 , false );
+        ctx.stroke();
+    }
+
+}
+
 
 pencil.addEventListener("click",function(){
+    isShape = false;
     ctx.strokeStyle = penColor;
     ctx.lineWidth = penWidth;
 });
@@ -105,12 +174,23 @@ pencilWidthElem.addEventListener("change", function(){
 });
 
 eraser.addEventListener("click",function(){
+    isShape = false;
     ctx.strokeStyle = eraserColor;
     ctx.lineWidth = eraserWidth;
 });
 eraserWidthElem.addEventListener("change", function(){
     eraserWidth = eraserWidthElem.value;
     ctx.lineWidth = eraserWidth;
+});
+
+straightLine.addEventListener("click", function(){
+    shapeType = "line";
+});
+rectangle.addEventListener("click", function(){
+    shapeType = "rect";
+});
+circle.addEventListener("click", function(){
+    shapeType = "circle";
 });
 
 
