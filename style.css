@@ -4,6 +4,22 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+.color-theme-cont {
+    display: flex;
+    position: absolute;
+    top : 2.5rem;
+    left: 10rem;
+}
+#white, #black {
+    height: 36px;
+    width: 44px;
+    cursor: pointer;
+}
+#white {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
 .options-cont {
@@ -22,7 +38,7 @@ body {
     cursor: pointer;
 }
 
-@keyframes scale-tools{
+@keyframes scale-tools-theme{
     0%{
         transform: scale(0.1);
     }
@@ -30,8 +46,8 @@ body {
         transform: scale(1);
     }
 }
-.scale-tools{
-    animation-name: scale-tools;
+.scale-tools-theme{
+    animation-name: scale-tools-theme;
     animation-duration: 0.9s;
 }
 .tools-cont {
@@ -162,7 +178,7 @@ textarea{
     height: 1.5rem;
     cursor: pointer;
 }
-#straight-line > img {
+#line > img {
     height: 26px;
     width: 26px;
 }

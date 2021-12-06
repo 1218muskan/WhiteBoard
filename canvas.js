@@ -2,17 +2,17 @@ let canvas = document.querySelector("canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let whiteColorElem = document.getElementById("white");
+let blackColorElem = document.getElementById("black");
+
 let pencilColors = document.querySelectorAll(".pencil-color");
 let pencilWidthElem = document.querySelector(".pencil-width");
 let eraserWidthElem = document.querySelector(".eraser-width");
+let shapeElem = document.querySelectorAll(".geometric-shape");
 let download = document.getElementById("download");
 let undo  = document.getElementById("undo");
 let redo  = document.getElementById("redo");
 let clearAll  = document.getElementById("clear-all");
-
-let straightLine = document.getElementById("straight-line");
-let rectangle = document.getElementById("rectangle");
-let circle = document.getElementById("circle");
 
 
 let penColor = "black";     // by default color of pencil
@@ -123,7 +123,7 @@ function drawShape(endX , endY){
         ctx.lineTo(endX, endY);
         ctx.stroke();
     }
-    else if(shapeType=== "rect"){
+    else if(shapeType=== "rectangle"){
         var breadth = endY - beginY;
         var length = endX - beginX ;
 
@@ -183,14 +183,10 @@ eraserWidthElem.addEventListener("change", function(){
     ctx.lineWidth = eraserWidth;
 });
 
-straightLine.addEventListener("click", function(){
-    shapeType = "line";
-});
-rectangle.addEventListener("click", function(){
-    shapeType = "rect";
-});
-circle.addEventListener("click", function(){
-    shapeType = "circle";
+shapeElem.forEach( diffShapes => {
+    diffShapes.addEventListener("click", function(){
+        shapeType= diffShapes.id;
+    })
 });
 
 
@@ -209,3 +205,55 @@ clearAll.addEventListener("click", function(){
     track++;
     undoRedoTracker[track]= blankURL;
 });
+
+
+blackColorElem.addEventListener("click", function(){
+    whiteColorElem.style.boxShadow = "none";
+    blackColorElem.style.boxShadow = "rgb(0,0,0) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset";
+
+    canvas.style.backgroundColor = blackColorElem.id;
+
+    // changing pencil colors
+    pencilColors[0].style.backgroundColor = "white";
+    pencilColors[2].style.backgroundColor = "yellow";
+    pencilColors[3].style.backgroundColor = "hotpink";
+
+    for(var i=0; i<5; i++){
+        pencilColors[i].style.border = "1px solid lightgray";
+    }
+
+    //changing pen, eraser and shape color
+    penColor = "white";
+    eraserColor = "black";
+    shapeColor = "white";
+
+    ctx.strokeStyle = penColor;
+
+
+    // changing box shadow of conatiners
+    optionsContainer.style.boxShadow = "rgba(255, 255, 255 , 0.6) 0px 5px 15px";
+    toolsContainer.style.boxShadow = "rgba(255, 255, 255, 0.6) 0px 5px 15px";
+
+    pencilToolCont.style.boxShadow = "rgba(255, 255, 255, 0.6) 0px 5px 15px";
+    eraserToolCont.style.boxShadow = "rgba(255, 255, 255, 0.6) 0px 5px 15px";
+    shapeToolCont.style.boxShadow = "rgba(255, 255, 255, 0.6) 0px 5px 15px";
+
+})
+whiteColorElem.addEventListener("click", function(){
+    blackColorElem.style.boxShadow="none";
+    whiteColorElem.style.boxShadow = "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset";
+
+    canvas.style.backgroundColor = whiteColorElem.id;
+
+    // changing pencil colors
+    pencilColors[0].style.backgroundColor = "black";
+    pencilColors[2].style.backgroundColor = "blue";
+    pencilColors[3].style.backgroundColor = "green";
+
+    //changing pen, shape and eraser color
+    penColor = "black";
+    eraserColor = "white";
+    shapeColor = "black";
+
+    ctx.strokeStyle = penColor;
+})

@@ -8,6 +8,7 @@ let upload = document.getElementById("upload");
 let pencilToolCont = document.querySelector(".pencil-tool-cont");
 let eraserToolCont = document.querySelector(".eraser-tool-cont");
 let shapeToolCont = document.querySelector(".shape-tool-cont");
+let colorThemeCont = document.querySelector(".color-theme-cont");
 
 // by default toolbar is visible
 let optionsFlag = true;  
@@ -35,11 +36,13 @@ optionsContainer.addEventListener("mouseout", function(){
 });
 optionsContainer.addEventListener("click", function(){
     optionsFlag = !optionsFlag;
-    if(optionsFlag){   //open toolbar
+    if(optionsFlag){   //open toolbar and theme option
         toolsContainer.style.display = "flex";
+        colorThemeCont.style.display = "flex";
     }
-    else{    //close toolbar
+    else{    //close toolbar and color theme
         toolsContainer.style.display = "none";
+        colorThemeCont.style.display = "none";
 
         pencilFlag = false;
         eraserFlag = false;
@@ -231,4 +234,3 @@ function dragAndDrop(element, event) {
         element.onmouseup = null;
     };
 }
-
