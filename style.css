@@ -159,9 +159,9 @@ textarea{
     width: 100%;
 }
 
+/************ Different shapes ************/
 .shape-tool-cont{
-    /* height: 7rem; */
-    height: 3.5rem;
+    height: 5.2rem;
     width: 8rem;
     background-color: #f1f2f6;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -170,27 +170,67 @@ textarea{
     left: 7.2rem;
     border-radius: 3px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     display: none;
 }
 .geometric-shape{
-    height: 1.5rem;
+    height: 2.4rem;
+    width: 2.4rem;
     cursor: pointer;
+    margin: 1px;
+    padding: 6px;
+    border-radius: 40%;
 }
-#line > img {
-    height: 26px;
-    width: 26px;
-}
-#rectangle {
+.geometric-shape > img {
     height: 25px;
     width: 25px;
-    border: 2px solid black;
 }
-#circle {
-    height: 27px;
-    width: 27px;
-    border: 2px solid black;
-    border-radius: 50%;
+.selected-shape {
+    background-color: #d7e0ee;
 }
 
+
+/**************** Multiple pages ******************/
+.pagination {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    display: flex;
+    padding: 20px 30px 20px 10px;
+    border-radius: 10%;
+}
+.change-page-icon{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#next-page {
+    margin-left: 3px;
+}
+.change-page-icon > img{
+    width: 22px;
+    height: 22px;
+}
+.change-page-icon:hover {
+    background-color: rgb(240, 231, 231);
+}
+#current-page {
+    margin-top: 5px;
+    width: 40px;
+    height: 30px;
+    /* border: 2px solid black; */
+    margin-left: 35px;
+    box-shadow: black 0px 0px 0px 2px inset, rgb(255, 255, 255) 5px -5px 0px -3px, rgb(31, 193, 27) 5px -5px, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(255, 217, 19) 10px -10px;
+}
+#current-page > p {
+    font-weight: 550;
+    font-size: 1.05rem;
+    margin: 6px 7px;
+}
