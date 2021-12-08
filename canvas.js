@@ -15,15 +15,15 @@ let pencilColors = document.querySelectorAll(".pencil-color");
 let pencilWidthElem = document.querySelector(".pencil-width");
 let eraserWidthElem = document.querySelector(".eraser-width");
 let shapeElem = document.querySelectorAll(".geometric-shape");
+let shapeColors = document.querySelectorAll(".shape-color");
 let download = document.getElementById("download");
 let undo  = document.getElementById("undo");
 let redo  = document.getElementById("redo");
 let clearAll  = document.getElementById("clear-all");
 
-
 let penColor = "black";     // by default color of pencil
 // let eraserColor = "white";
-let shapeColor = "black";
+let shapeOutlineColor = "black";   // by default color of shape is black
 let shapeType = "line";    // by default shape is straight line
 let penWidth = pencilWidthElem.value;
 let eraserWidth = eraserWidthElem.value;
@@ -178,6 +178,13 @@ shapeElem.forEach( diffShapes => {
         
     })
 });
+shapeColors.forEach((colorElem) => {
+    colorElem.addEventListener("click", function(){
+        let color = colorElem.style.backgroundColor;
+        shapeOutlineColor = color;
+        ctx.strokeStyle = shapeOutlineColor;
+    });
+})
 
 
 download.addEventListener("click", function(){
@@ -201,7 +208,7 @@ function drawShape(endX , endY){
 
     ctx.globalCompositeOperation="source-over";
     ctx.lineWidth = shapeWidth;
-    ctx.strokeStyle = shapeColor;
+    ctx.strokeStyle = shapeOutlineColor;
 
     if(shapeType === "line"){
         ctx.moveTo(beginX , beginY);
@@ -270,10 +277,14 @@ blackColorElem.addEventListener("click", function(){
 
     canvas.style.backgroundColor = blackColorElem.id;
 
-    // changing pencil colors
+    // changing pencil and shape colors
     pencilColors[0].style.backgroundColor = "white";
     pencilColors[2].style.backgroundColor = "yellow";
     pencilColors[3].style.backgroundColor = "hotpink";
+    pencilColors[4].style.backgroundColor = "greenyellow";
+
+    shapeColors[0].style.backgroundColor = "white";
+    shapeColors[0].style.border = "1.5px solid lightgray";
 
     for(var i=0; i<5; i++){
         pencilColors[i].style.border = "1px solid lightgray";
@@ -282,7 +293,7 @@ blackColorElem.addEventListener("click", function(){
     //changing pen, eraser and shape color
     penColor = "white";
     eraserColor = "black";
-    shapeColor = "white";
+    shapeOutlineColor = "white";
 
     ctx.strokeStyle = penColor;
 
@@ -306,15 +317,17 @@ whiteColorElem.addEventListener("click", function(){
 
     canvas.style.backgroundColor = whiteColorElem.id;
 
-    // changing pencil colors
+    // changing pencil and shape colors
     pencilColors[0].style.backgroundColor = "black";
     pencilColors[2].style.backgroundColor = "blue";
     pencilColors[3].style.backgroundColor = "green";
+    pencilColors[4].style.backgroundColor = "orange";
+    shapeColors[0].style.backgroundColor = "black";
 
     //changing pen, shape and eraser color
     penColor = "black";
     eraserColor = "white";
-    shapeColor = "black";
+    shapeOutlineColor = "black";
 
     ctx.strokeStyle = penColor;
 

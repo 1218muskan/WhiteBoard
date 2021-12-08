@@ -118,7 +118,7 @@ shape.addEventListener("click", function(){
     shapeFlag = !shapeFlag;
 
     if(shapeFlag){   //show shape tool 
-        shapeToolCont.style.display = "flex";
+        shapeToolCont.style.display = "block";
     }
     else{    //hide eraser tool
         shapeToolCont.style.display = "none";

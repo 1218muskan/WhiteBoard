@@ -161,7 +161,7 @@ textarea{
 
 /************ Different shapes ************/
 .shape-tool-cont{
-    height: 5.2rem;
+    height: 8.2rem;
     width: 8rem;
     background-color: #f1f2f6;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -169,17 +169,19 @@ textarea{
     top: 20.6rem;
     left: 7.2rem;
     border-radius: 3px;
+    display: none;
+}
+.geometric-shape-cont { 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    display: none;
+    flex-wrap: wrap; 
 }
 .geometric-shape{
     height: 2.4rem;
     width: 2.4rem;
     cursor: pointer;
-    margin: 1px;
+    margin: 3px 1px;
     padding: 6px;
     border-radius: 40%;
 }
@@ -190,7 +192,25 @@ textarea{
 .selected-shape {
     background-color: #d7e0ee;
 }
-
+hr{
+    width: 80%;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.shape-color-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+}
+.shape-color{
+    margin: 4px;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
 /**************** Multiple pages ******************/
 .pagination {
