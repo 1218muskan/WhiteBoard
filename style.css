@@ -12,6 +12,7 @@ body {
     position: absolute;
     top : 2.5rem;
     left: 10rem;
+    z-index:5;
 }
 #white, #black {
     height: 36px;
@@ -36,6 +37,7 @@ body {
     font-size: 1.5rem;
     box-shadow: rgba(66, 47, 47, 0.3) 0px 5px 15px;
     cursor: pointer;
+    z-index:5;
 }
 
 @keyframes scale-tools-theme{
@@ -61,6 +63,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 12px;
     background-color: #f1f2f6;
+    z-index:5;
 }
 .tools-cont > *{
     display: block;
@@ -85,6 +88,7 @@ body {
     left: 7.2rem;
     border-radius: 3px;
     display: none;
+    z-index:5;
 }
 .pencil-width{
     width: 80%;
@@ -102,6 +106,21 @@ body {
     border-radius: 50%;
     cursor: pointer;
 }
+.black {
+    background-color: black;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: blue;
+}
+.green {
+    background-color: green;
+}
+.purple {
+    background-color: purple;
+}
 
 .eraser-tool-cont{
     height: 2.8rem;
@@ -114,6 +133,7 @@ body {
     border-radius: 3px;
     text-align: center;
     display: none;
+    z-index:5;
 }
 .eraser-tool-cont input{
     margin-top: 0.8rem;
@@ -126,7 +146,7 @@ body {
     position: absolute;
     top: 8rem;
     left: 30rem;
-
+    z-index:5;
 }
 .header-cont{
     height: 2rem;
@@ -170,6 +190,7 @@ textarea{
     left: 7.2rem;
     border-radius: 3px;
     display: none;
+    z-index:5;
 }
 .geometric-shape-cont { 
     display: flex;
@@ -220,6 +241,7 @@ hr{
     display: flex;
     padding: 20px 30px 20px 10px;
     border-radius: 10%;
+    z-index:5;
 }
 .change-page-icon{
     border-radius: 50%;
@@ -242,15 +264,20 @@ hr{
     background-color: rgb(240, 231, 231);
 }
 #current-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 5px;
-    width: 40px;
-    height: 30px;
+    width: 50px;
+    height: 32px;
     /* border: 2px solid black; */
-    margin-left: 35px;
+    margin-left: 30px;
     box-shadow: black 0px 0px 0px 2px inset, rgb(255, 255, 255) 5px -5px 0px -3px, rgb(31, 193, 27) 5px -5px, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(255, 217, 19) 10px -10px;
 }
 #current-page > p {
     font-weight: 550;
     font-size: 1.05rem;
-    margin: 6px 7px;
+}
+canvas {
+    background-color: white;
 }

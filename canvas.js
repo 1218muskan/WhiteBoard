@@ -21,10 +21,10 @@ let undo  = document.getElementById("undo");
 let redo  = document.getElementById("redo");
 let clearAll  = document.getElementById("clear-all");
 
-let penColor = "black";     // by default color of pencil
-// let eraserColor = "white";
+
+let penColor = "black";            // by default color of pencil
 let shapeOutlineColor = "black";   // by default color of shape is black
-let shapeType = "line";    // by default shape is straight line
+let shapeType = "line";            // by default shape is straight line
 let penWidth = pencilWidthElem.value;
 let eraserWidth = eraserWidthElem.value;
 let shapeWidth = "3";
@@ -94,6 +94,8 @@ canvas.addEventListener("mouseup", function(event){
     }
 });
 
+
+
 undo.addEventListener("click" , function(){
     if(track1 >= 0){
         track1 = track1-1;
@@ -145,8 +147,8 @@ pencil.addEventListener("click",function(){
 });
 pencilColors.forEach((colorElem) => {
     colorElem.addEventListener("click", function(){
-        // let color = colorElem.classList[0];
-        let color = colorElem.style.backgroundColor;
+
+        let color = colorElem.classList[0];
         penColor = color;
         ctx.strokeStyle = penColor;
     });
@@ -160,7 +162,6 @@ eraser.addEventListener("click",function(){
     isShape = false;
 
     ctx.globalCompositeOperation="destination-out";
-    // ctx.strokeStyle = eraserColor;
     ctx.lineWidth = eraserWidth;
 });
 eraserWidthElem.addEventListener("change", function(){
@@ -180,7 +181,8 @@ shapeElem.forEach( diffShapes => {
 });
 shapeColors.forEach((colorElem) => {
     colorElem.addEventListener("click", function(){
-        let color = colorElem.style.backgroundColor;
+
+        let color = colorElem.classList[0];
         shapeOutlineColor = color;
         ctx.strokeStyle = shapeOutlineColor;
     });
@@ -275,28 +277,28 @@ blackColorElem.addEventListener("click", function(){
     whiteColorElem.style.boxShadow = "none";
     blackColorElem.style.boxShadow = "rgb(10,10,10) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -2px -2px 6px 1px inset";
 
-    canvas.style.backgroundColor = blackColorElem.id;
-
-    // changing pencil and shape colors
+    // changing pencil colors
     pencilColors[0].style.backgroundColor = "white";
+    pencilColors[1].style.backgroundColor = "cyan";
     pencilColors[2].style.backgroundColor = "yellow";
-    pencilColors[3].style.backgroundColor = "hotpink";
-    pencilColors[4].style.backgroundColor = "greenyellow";
-
-    shapeColors[0].style.backgroundColor = "white";
-    shapeColors[0].style.border = "1.5px solid lightgray";
+    pencilColors[3].style.backgroundColor = "violet";
+    pencilColors[4].style.backgroundColor = "lime";
 
     for(var i=0; i<5; i++){
         pencilColors[i].style.border = "1px solid lightgray";
     }
 
-    //changing pen, eraser and shape color
-    penColor = "white";
-    eraserColor = "black";
-    shapeOutlineColor = "white";
+    // changing shape colors
+    shapeColors[0].style.backgroundColor = "white";
+    shapeColors[1].style.backgroundColor = "cyan";
+    shapeColors[2].style.backgroundColor = "yellow";
 
-    ctx.strokeStyle = penColor;
-
+    for(var i=0; i<3; i++){
+        shapeColors[i].style.border = "1.5px solid lightgray";
+    }
+    
+    canvas.style.filter = "invert(100%)";
+    
 
     // changing box shadow of conatiners
     optionsContainer.style.boxShadow = "rgba(255, 255, 255 , 0.7) 0px 5px 15px";
@@ -315,22 +317,17 @@ whiteColorElem.addEventListener("click", function(){
     blackColorElem.style.boxShadow="none";
     whiteColorElem.style.boxShadow = "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset";
 
-    canvas.style.backgroundColor = whiteColorElem.id;
-
     // changing pencil and shape colors
     pencilColors[0].style.backgroundColor = "black";
+    pencilColors[1].style.backgroundColor = "red";
     pencilColors[2].style.backgroundColor = "blue";
     pencilColors[3].style.backgroundColor = "green";
-    pencilColors[4].style.backgroundColor = "orange";
+    pencilColors[4].style.backgroundColor = "purple";
+
+    // changing shape outline colors
     shapeColors[0].style.backgroundColor = "black";
-
-    //changing pen, shape and eraser color
-    penColor = "black";
-    eraserColor = "white";
-    shapeOutlineColor = "black";
-
-    ctx.strokeStyle = penColor;
-
+    shapeColors[1].style.backgroundColor = "red";
+    shapeColors[2].style.backgroundColor = "blue";
 
     // changing box shadow of conatiners
     optionsContainer.style.boxShadow = "rgba(66, 47, 47, 0.3) 0px 5px 15px";
@@ -342,6 +339,8 @@ whiteColorElem.addEventListener("click", function(){
 
     // changing the display of options for multiple pages
     multiplePagesCont.style.backgroundColor = "none";
+
+    canvas.style.filter = "invert(0%)";
 })
 
 
